@@ -1,26 +1,27 @@
 const inputData = document.querySelector('#validation-input');
 console.log(inputData); 
 
+const borderInputValid = document.querySelector('#validation-input.valid');
+console.log(borderInputValid);
+
+
 let inputLength = 0;
 
 const handleMakeInput = (event) => {
 
     if (inputLength === Number(inputData.getAttribute('data-length'))) {
-
-        event.target.style.border = '2px solid #bdbdbd;';
-        event.target.style.borderColor = '#4caf50';
-        
+        event.target.classList.remove('invalid');
+        event.target.classList.add('valid');
+                    
     } else {
-
-        event.target.style.border = '2px solid #bdbdbd;';
-        event.target.style.borderColor = '#f44336';
+        event.target.classList.remove('valid');
+        event.target.classList.add('invalid');
+        
     }
 }
 
 inputData.addEventListener('input', (event) => {
- 
-    inputLength = event.currentTarget.value.length;
-
+     inputLength = event.currentTarget.value.length;
    })
 
 inputData.addEventListener('blur', handleMakeInput );
