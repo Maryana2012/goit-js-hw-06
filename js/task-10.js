@@ -10,21 +10,17 @@ const createBtnEl = BtnEls[0];
 const destroyBtnEl = BtnEls[1]; 
 const boxesEl = document.querySelector('#boxes');
 
-
-createBtnEl.addEventListener('click', handleBoxes());
+createBtnEl.addEventListener('click', handleBoxes);
 
 destroyBtnEl.addEventListener('click', () => {
   boxesEl.innerHTML = '';
 });
 
+
 function handleBoxes() {
-
-  inputEl.addEventListener('input', (event) => {
-     
-     const amount = Number(event.currentTarget.value);
-
-     createBoxes(amount);
-    }) 
+  
+  const amount = Number(inputEl.value);
+  createBoxes(amount);
 }  
 
 function createBoxes(number) {
@@ -42,6 +38,7 @@ function createBoxes(number) {
     boxEl.style.width = `${width}px`;
     boxEl.style.height = `${height}px`;
     boxEl.style.backgroundColor = getRandomHexColor();
+    boxEl.style.marginTop = '5px';
     
     boxesEl.append(boxEl);
   }
