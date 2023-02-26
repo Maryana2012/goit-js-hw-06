@@ -20,7 +20,10 @@ destroyBtnEl.addEventListener('click', () => {
 function handleBoxes() {
   
   const amount = Number(inputEl.value);
-  createBoxes(amount);
+  if (amount > 1 && amount <= 100) {
+    createBoxes(amount);
+  } else { alert ('Введіть число від 1 до 100')}
+
 }  
 
 function createBoxes(number) {
