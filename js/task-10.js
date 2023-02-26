@@ -11,10 +11,11 @@ const destroyBtnEl = BtnEls[1];
 const boxesEl = document.querySelector('#boxes');
 
 
-createBtnEl.addEventListener('click', handleBoxes);
-// createBtnEl.addEventListener('click', () => {
-//   boxesEl.remove();
-// });
+createBtnEl.addEventListener('click', handleBoxes());
+
+destroyBtnEl.addEventListener('click', () => {
+  boxesEl.innerHTML = '';
+});
 
 function handleBoxes() {
 
@@ -22,8 +23,8 @@ function handleBoxes() {
      
      const amount = Number(event.currentTarget.value);
 
+     createBoxes(amount);
     }) 
-    createBoxes(amount);
 }  
 
 function createBoxes(number) {
